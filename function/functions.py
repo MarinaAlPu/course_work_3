@@ -1,5 +1,6 @@
 import json
-import os
+from datetime import datetime
+# import os
 
 # DATA_OPERATIONS_PATH = os.path.join('../package.json')
 # print(DATA_OPERATIONS_PATH)
@@ -48,9 +49,16 @@ def get_sort_executed_list(executed_list):
 # get_sort_executed_list(get_executed_list(get_operations_data()))
 
 
-def get_last_operations(operations_list, x):
+def get_last_operations(operations_list, quantity_of_operations):
     # print(operations_list[0:5])
     return operations_list[0:5]
 
 
 # get_last_operations(get_sort_executed_list(get_executed_list(get_operations_data())), 5)
+
+def get_date_formatted(operation_date):
+    date_formatted = datetime.strptime(operation_date, "%Y-%m-%dT%H:%M:%S.%f").strftime("%d.%m.%Y")
+    return date_formatted
+
+
+# def get_from_to_formatted():
