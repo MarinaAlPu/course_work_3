@@ -61,4 +61,27 @@ def get_date_formatted(operation_date):
     return date_formatted
 
 
-# def get_from_to_formatted():
+def get_from_formatted(operation):
+    if 'from' in list(operation.keys()):
+        if 'Счет' in operation['from']:
+            from_where_value = operation['from'][-20:]
+            from_where = f"{operation['from'][:-20:]} **{from_where_value[-4:]}"
+            return f"{from_where} -> "
+        else:
+            from_where_value = operation['from'][-16:]
+            from_where = f"{operation['from'][:-16]} {from_where_value[0: 4]} {from_where_value[4: 6]}** **** {from_where_value[-4:]}"
+            return f"{from_where} -> "
+    else:
+        return ''
+
+
+
+def get_to_formatted(operation):
+    if 'Счет' in operation['to']:
+        to_value = operation['to'][-20:]
+        to = f"{operation['to'][:-20]} **{to_value[-4:]}"
+        return to
+    else:
+        to_value = operation['to'][-16:]
+        to = f"{operation['to'][:-16]} {to_value[0: 4]} {to_value[4: 6]}** **** {to_value[-4:]}"
+        return to
