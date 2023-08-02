@@ -50,13 +50,15 @@ def get_last_operations(operations_list, quantity_of_operations):
     return operations_list[0:quantity_of_operations]
 
 
-def get_date_formatted(operation_date):
+def get_date_formatted(operation_date, as_is_format, to_be_format):
     """
     Форматирует дату, полученную из БД
     :param operation_date: дата из БД
-    :return: дата в нужном формате
+    :param as_is_format:
+    :param to_be_format:
+    :return:  дата в нужном формате
     """
-    date_formatted = datetime.strptime(operation_date, "%Y-%m-%dT%H:%M:%S.%f").strftime("%d.%m.%Y")
+    date_formatted = datetime.strptime(operation_date, as_is_format).strftime(to_be_format)
     return date_formatted
 
 
@@ -64,7 +66,7 @@ def get_from_formatted(operation):
     """
     Получает источник, из которого была проведена операция
     :param operation: список операций
-    :return: откуда была проведена операция
+    :return: источник перевода
     """
     if 'from' in list(operation.keys()):
         if 'Счет' in operation['from']:
@@ -83,7 +85,7 @@ def get_to_formatted(operation):
     """
     Получает адресата перевода
     :param operation: список опреаций
-    :return: куда был осуществлён перевод
+    :return: получатель перевода
     """
     if 'Счет' in operation['to']:
         to_value = operation['to'][-20:]
