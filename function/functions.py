@@ -47,6 +47,8 @@ def get_last_operations(operations_list, quantity_of_operations):
     :param quantity_of_operations: количество операций для вывода н аэкран
     :return: список операций, которые будут выведена на экран
     """
+    if quantity_of_operations > len(operations_list):
+        return operations_list[0:len(operations_list)]
     return operations_list[0:quantity_of_operations]
 
 
