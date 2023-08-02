@@ -41,9 +41,9 @@ Visa Platinum 7000 79** **** 6361 -> Счет **9638
 1. Клонировать проект командой git clone https://github.com/MarinaAlPu/course_work_3.git
 2. Установить все зависимости командой python `-m pip install -r requirements.txt`
 3. Запустить тесты командой `python -m pytest -k test_function.py`
-4. Сгенерировать отчёт о покрытии кода тестами командой `pytest --cov function --cov-report=html`
-5. Открыть отчёт отчёт о покрытии кода тестами командой `htmlcov/index.html`
-6. Запустить тесты, сгенерировать и открыть отчёт о покрытии кода тестами одной командой
+   Сгенерировать отчёт о покрытии кода тестами командой `pytest --cov function --cov-report=html`
+   Открыть отчёт отчёт о покрытии кода тестами командой `htmlcov/index.html`
+6. Или запустить тесты, сгенерировать и открыть отчёт о покрытии кода тестами одной командой
       `python -m pytest -k test_function.py --cov function --cov-report=html ; htmlcov/index.html`
 
 ## Стек:
