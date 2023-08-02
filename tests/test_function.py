@@ -38,9 +38,14 @@ def test_get_last_operations(data_test):
 
 
 def test_get_date_formatted():
+    # if datetime.strptime(operation_date, "%Y-%m-%dT%H:%M:%S.%f"):
     assert functions.get_date_formatted("2019-07-13T18:51:29.313309", AS_IS_FORMAT, TO_BE_FORMAT) == '13.07.2019'
     assert functions.get_date_formatted("2017-12-10T18:51:29.3", AS_IS_FORMAT, TO_BE_FORMAT) == '10.12.2017'
-
+    # assert functions.get_date_formatted("9999-99-99T18:51:29.313309", AS_IS_FORMAT, TO_BE_FORMAT) == ValueError
+    # assert functions.get_date_formatted("0000-00-00T00:00:00.000000", AS_IS_FORMAT, TO_BE_FORMAT) == ValueError
+    # assert functions.get_date_formatted("2019-07-13T99:99:99.999999", AS_IS_FORMAT, TO_BE_FORMAT) == ValueError
+    # assert functions.get_date_formatted("2019-07-13T18:51:29", AS_IS_FORMAT, TO_BE_FORMAT) == '13.07.2019'
+    # assert functions.get_date_formatted("2019-07-13 18:51:29.313309", AS_IS_FORMAT, TO_BE_FORMAT) == ValueError
 
 def test_get_from_formatted(data_test):
     assert functions.get_from_formatted(data_test[0]) == 'МИР 5211 27** **** 8469 -> '
