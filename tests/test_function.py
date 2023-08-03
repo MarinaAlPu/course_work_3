@@ -1,7 +1,6 @@
 import os
 import pytest
 from function import functions
-from datetime import datetime
 
 DATA_OPERATIONS_PATH = os.path.join(os.path.dirname(__file__), "..", 'package.json')
 OPERATION_KEY = 'EXECUTED'
@@ -25,6 +24,7 @@ def test_get_executed_list(data_test):
     executed_list_by_key = functions.get_executed_list(data_test, 'CANCELED')
     for operation in executed_list_by_key:
         assert operation[KEY_FOR_CHECK] == 'CANCELED'
+
 
 def test_get_sort_executed_list(data_test):
     assert isinstance(functions.get_sort_executed_list(data_test, PARAM_FOR_SORT), list) == True
@@ -57,6 +57,7 @@ def test_get_date_formatted():
         functions.get_date_formatted("30/45/9345T21:51:29.357310", AS_IS_FORMAT, TO_BE_FORMAT)
         functions.get_date_formatted("2014-09-10", AS_IS_FORMAT, TO_BE_FORMAT)
         functions.get_date_formatted("пятое ноября 2016г.T21:51:29.357310", AS_IS_FORMAT, TO_BE_FORMAT)
+
 
 def test_get_from_formatted(data_test):
     assert functions.get_from_formatted(data_test[0]) == 'МИР 5211 27** **** 8469 -> '
