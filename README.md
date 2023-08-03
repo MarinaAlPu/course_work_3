@@ -37,7 +37,7 @@ Visa Platinum 7000 79** **** 6361 -> Счет **9638
 - [ ]  Работа с файлом ведется через библиотеку json
       
 
-## Шаги
+## Шаги :bookmark_tabs:
 1. Клонировать проект командой `git clone https://github.com/MarinaAlPu/course_work_3.git`
 2. Установить все зависимости командой `python -m pip install -r requirements.txt`
 3. Запустить функцию командой `python  main.py`
@@ -47,13 +47,13 @@ Visa Platinum 7000 79** **** 6361 -> Счет **9638
 6. Или запустить тесты, сгенерировать и открыть отчёт о покрытии кода тестами одной командой  
       `python -m pytest -k test_function.py --cov function --cov-report=html ; htmlcov/index.html`
 
-## Стек:
+## Стек :hammer_and_wrench:
 - pytest
 - json
 - os
 - datetime
 
-## Структура:
+## Структура :scroll:
 - requirements.txt - список всех зависимостей для установки
 - package.json - файл со списком операций, совершенных клиентом банка
 - main.py - файл с функцией, которая выводит на экран список из 5 последних выполненных клиентом операций в требуемом формате
