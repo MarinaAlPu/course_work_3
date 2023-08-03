@@ -6,7 +6,7 @@ def data_test():
     data_test_operations = [
         {
         "id": 179194306,
-        "state": "EXECUTED",
+        "state": "CANCELED",
         "date": "2019-05-19T12:51:49.023880",
         "operationAmount": {
           "amount": "6381.58",
