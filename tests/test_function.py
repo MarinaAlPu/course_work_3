@@ -17,10 +17,13 @@ def test_get_operations_data():
 def test_get_executed_list(data_test):
     assert isinstance(functions.get_executed_list(data_test, OPERATION_KEY), list) == True
 
-    executed_list_by_key = functions.get_executed_list(data_test, OPERATION_KEY)
+    executed_list_by_key = functions.get_executed_list(data_test, 'EXECUTED')
     for operation in executed_list_by_key:
         assert operation[KEY_FOR_CHECK] == 'EXECUTED'
 
+    executed_list_by_key = functions.get_executed_list(data_test, 'CANCELED')
+    for operation in executed_list_by_key:
+        assert operation[KEY_FOR_CHECK] == 'CANCELED'
 
 def test_get_sort_executed_list(data_test):
     assert isinstance(functions.get_sort_executed_list(data_test, PARAM_FOR_SORT), list) == True
