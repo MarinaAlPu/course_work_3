@@ -1,6 +1,6 @@
 import os
+import pytest
 from function import functions
-from datetime import datetime
 
 DATA_OPERATIONS_PATH = os.path.join(os.path.dirname(__file__), "..", 'package.json')
 OPERATION_KEY = 'EXECUTED'
@@ -44,6 +44,19 @@ def test_get_last_operations(data_test):
 def test_get_date_formatted():
     assert functions.get_date_formatted("2019-07-13T18:51:29.313309", AS_IS_FORMAT, TO_BE_FORMAT) == '13.07.2019'
     assert functions.get_date_formatted("2017-12-10T18:51:29.3", AS_IS_FORMAT, TO_BE_FORMAT) == '10.12.2017'
+
+    with pytest.raises(ValueError) as error:
+        functions.get_date_formatted("9999-99-99T18:51:29.3", AS_IS_FORMAT, TO_BE_FORMAT)
+        functions.get_date_formatted("9999-99-99T18:51:29.313309", AS_IS_FORMAT, TO_BE_FORMAT)
+        functions.get_date_formatted("0000-00-00T00:00:00.000000", AS_IS_FORMAT, TO_BE_FORMAT)
+        functions.get_date_formatted("2019-07-13T99:99:99.999999", AS_IS_FORMAT, TO_BE_FORMAT)
+        functions.get_date_formatted("2019-07-13T18:51:29", AS_IS_FORMAT, TO_BE_FORMAT)
+        functions.get_date_formatted("2019-07-13 13:51:29.313309", AS_IS_FORMAT, TO_BE_FORMAT)
+        functions.get_date_formatted("3019-39-75 18:46:29.313309", AS_IS_FORMAT, TO_BE_FORMAT)
+        functions.get_date_formatted("2000.12.10T21:51:29.357310", AS_IS_FORMAT, TO_BE_FORMAT)
+        functions.get_date_formatted("30/45/9345T21:51:29.357310", AS_IS_FORMAT, TO_BE_FORMAT)
+        functions.get_date_formatted("2014-09-10", AS_IS_FORMAT, TO_BE_FORMAT)
+        functions.get_date_formatted("пятое ноября 2016г.T21:51:29.357310", AS_IS_FORMAT, TO_BE_FORMAT)
 
 
 def test_get_from_formatted(data_test):
