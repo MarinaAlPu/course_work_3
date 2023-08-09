@@ -11,7 +11,7 @@ def get_operations_data(path):
     with open(path, 'r', encoding='UTF-8') as file:
         operations_data = json.load(file)
         return operations_data
-
+# Добавить исключения к загрузке файла
 
 def get_executed_list(operations_data, operation_key):
     """

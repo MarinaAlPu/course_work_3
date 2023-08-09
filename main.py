@@ -13,8 +13,8 @@ TO_BE_FORMAT = "%d.%m.%Y"
 def get_list_operations():
     operations_data = get_operations_data(DATA_OPERATIONS_PATH)
     executed_list = get_executed_list(operations_data, OPERATION_KEY)
-    sort_executed_list = get_sort_executed_list(executed_list, PARAM_FOR_SORT)
-    last_operations = get_last_operations(sort_executed_list, QUANTITY_OF_OPERATIONS)
+
+    # Получение отформатированной даты тут. Сортируем по отформатированной дате, не строки с датами
 
     count = 0
     while count < QUANTITY_OF_OPERATIONS:
@@ -29,5 +29,8 @@ def get_list_operations():
             print(f'{operation_date} {description}\n{from_where}{to}\n{amount} {currency}\n')
             count += 1
 
+
+    sort_executed_list = get_sort_executed_list(executed_list, PARAM_FOR_SORT)
+    last_operations = get_last_operations(sort_executed_list, QUANTITY_OF_OPERATIONS)
 
 get_list_operations()
